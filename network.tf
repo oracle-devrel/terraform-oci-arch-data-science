@@ -1,4 +1,4 @@
-## Copyright © 2020, Oracle and/or its affiliates. 
+## Copyright (c) 2022, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 # Create VCN
@@ -33,7 +33,8 @@ resource "oci_core_route_table" "apprt" {
   vcn_id         = oci_core_virtual_network.vcn.id
   display_name   = "app-rt-table"
   route_rules {
-    cidr_block        = "0.0.0.0/0"
+    destination_type  = "CIDR_BLOCK"
+    destination       = "0.0.0.0/0"
     network_entity_id = oci_core_internet_gateway.ExampleIG.id
   }
   defined_tags = {"${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
