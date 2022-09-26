@@ -215,8 +215,9 @@ variables:
     visible: false
     title: "Instance OS version"
     description: "Choose Operating System version that determines the operating system version for User Application VMs."
-    default: "8"
+    default: "9"
     enum:
+      - "9"
       - "8"
       - "7.9"  
 
